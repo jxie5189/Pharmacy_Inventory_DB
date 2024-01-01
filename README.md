@@ -2,8 +2,16 @@
 
 Many of the inefficiencies involve managing the inventory, predicting prescriptions volume, actual pick up time, and the time lag of reimbursement. For example, one can ensure 100% fulfillment by overstocking, but that would only constrain cash reserve. On the flip side, an ‘on-order’ basis strategy would have each claim to be billed and then ordered from the wholesaler the next day. This would ensure only billed medications are ordered, but would  decrease customer satisfaction, because medications are always available the next day. And even when fill, not 100% of customers picks up their medication on day 1 or at all, leading to dead stock and reversed claims later on. 
  
-Thus, I intend to create a program (call Fractional_Res) that will take an advantage of the fact that customer don’t always pick up on time and many of the those customers are on the same medication by creating a program that will track prescriptions that are processed daily while monitoring drug inventory level. This will ultimately allows the program to suggest an optimal inventory purchase rate. I believe by controlling the purchase rate, while not compromising customer satisfaction, will lead to a more successful pharmacy business model. 
-	
+Thus, I intend to create a program (call Fractional_Res) that will take an advantage of the fact that customer don’t always pick up on time and many of the those customers are on the same medication by creating a program that will track prescriptions that are processed daily while monitoring drug inventory level. This will ultimately allows the program to suggest an optimal inventory purchase rate. I believe by controlling the purchase rate, while not compromising customer satisfaction, will lead to a more successful pharmacy business model.
+
+The original project 
+
+The program is written in PostgreSQL. 
+
+
+
+
+ 
 I envision that this program to transform the pharmacy inventory system as a bank-style fraction reserve system, meaning there will be never be 100% fulfillment on day 1. Because not everyone picks up on time (on times as the day a prescription is billed) and many people are on the same medication, only a fraction of the same drug needs to be filled at all time. For example, if 10 orders for medication X were billed on day 1, and the pharmacy will carry only 8 bottles of medication X, then only 7 out of the 10 medication X order needs to be filled on day 1. The left over 1 bottle of medication will serve as a reserve for any walk-ins or if the remaining 3 out of 10 unfilled medication orders decides to show up. The missing 2 bottle needed to complete all 10 orders are will be ordered and filled from wholesaler over the next few days. This will eliminate the heavy cost needed to buy 10 bottles of Medication X at once and instead reserves the cash for other expenses. 
 
 While some people will evidently not pick up on the first day, there will be some people that will come and pick up. This program will set aside a percentage of billed quantity as a reserve. The reserve will stand by stock, not filled but can be filled. The total inventory would be the sum of the all filled orders and reserve stock. This sum will be initially less than the total quantity billed. The difference between the total quantity billed and the total inventory would be the amount needed to be ordered (from wholesaler) and filled. This amount will be spread over a designated number of days. 
