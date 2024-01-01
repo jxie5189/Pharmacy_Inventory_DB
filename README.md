@@ -6,7 +6,7 @@ Thus, I intend to create a program (call Fractional_Res) that will take an advan
 
 The original project 
 
-The program is written in PostgreSQL and broken down into different components. 
+The program is written in PostgreSQL and broken down into different components inside SQL_codes folder. The All_tables.sql contains codes for all table and table sequence creation. Once tables are created, the All_indexes can be created for certain tables. 
 
 
 
