@@ -42,7 +42,10 @@ The register_patient procedure takes patient related information and assess if t
 
 All patient information is then inserted into the ENROLLMENT table. 
 
-The Add_Prescription procedure takes the input prescription information and utilizes subqueries to obtain referenced entries from other tables to insert into the PRESCRIPTION table and updates the INVENTORY table. 
+The Add_Prescription procedure takes the input prescription information and utilizes subqueries to obtain referenced entries from other tables to insert into the PRESCRIPTION table and updates the INVENTORY table. Drug_ndc, pharm_npi, get_patient_id, get_prescriber_npi are declared variables and obtained from table DRUG, PHARMACY, PATIENT, and PRESCRIBER respectively. After insertion into PRESCRIPTION table, the tobe_filled_quantity in the INVENTORY table is updated with a running count. 
+
+The verify_rx procedure
+
 
 
 
