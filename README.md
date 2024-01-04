@@ -53,9 +53,14 @@ The **verify_rx** procedure allows a pharmacist to fill/not fill a prescription 
 
 The **pickup_rx** procedure indicates the final sale of a prescription and the finalizes the deduction from the inventory. The procedure updates 3 different tables (PRESCRIPTION, INVENTORY, PATIENT) and inserts into the PICKUP_PERSON table. The pickup_id in the PRESCRIPTION table is updated, the filled_quantity from the INVENTORY table is updated (via subquery to obtain the quantity_dispensed), and the avg_pickuptime in the PATIENT table is updated. The avg_pickuptime is calculated thru a subquery of the average *pickup_date* - *written_on* from PRESCRIPTION table joined PICKUP_PERSON join PATIENT. 
 
-
-
-
+### Major Queries
+Majors queries represents certain queries that might be useful for the user. 
+1. Workque dashboard:
+   - displays *prescription number, written_on, drug_name, current_quantity, current_dispense, is_rx_filled, pharmacist_signed* of all the prescriptions that has not been sign/reviewed by a pharmacist yet.
+ 2. Which patient has the most expensive medication this month (the current query is set to octobter)
+ 3. Which patient has the most expensive medication thus far
+ 4. which pharmacist signed off the most prescriptions
+ 5. which medication is below the reserved quantity level and needs to be ordered and how much it will cost 
 
 
 
